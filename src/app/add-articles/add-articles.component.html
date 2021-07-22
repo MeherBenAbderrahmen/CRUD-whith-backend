@@ -1,0 +1,93 @@
+<form [formGroup]="articleForm" (submit)='addArticle()'>
+
+
+    <!-- Form Name -->
+    <h2 class="offset-4">Ajouter Article</h2>
+
+    <!-- Text input nom produit-->
+
+    <div class="offset-3 form-group">
+        <label class="col-md-12 control-label">Nom Article</label>
+        <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="nom" placeholder="Nom Article" class="form-control" type="text"
+                    formControlName="nomArticle"
+                    [ngClass]="{'is-valid': submitted && !articleForm.controls.nomArticle.errors ,'is-invalid': submitted && articleForm.controls.nomArticle.errors}">
+                <div class="invalid-feedback d-block"
+                    *ngIf="submitted && articleForm.controls.nomArticle.hasError('required')">Vérifiez votre saisie
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Text input quantite-->
+
+    <div class="offset-3 form-group">
+        <label class="col-md-4 control-label">Quantite Article</label>
+        <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="quantite" placeholder="Quantite" class="form-control" type="text"
+                    formControlName="quantiteArticle"
+                    [ngClass]="{'is-valid': submitted && !articleForm.controls.quantiteArticle.errors ,'is-invalid': submitted && articleForm.controls.quantiteArticle.errors}">
+                <div class="invalid-feedback d-block"
+                    *ngIf="submitted && articleForm.controls.quantiteArticle.hasError('required')">Vérifiez votre saisie
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Text input Qte dispo-->
+
+    <div class="offset-3 form-group">
+        <label class="col-md-4 control-label">Description</label>
+        <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="description" placeholder="Description" class="form-control" type="text"
+                    formControlName="description"
+                    [ngClass]="{'is-valid': submitted && !articleForm.controls.description.errors ,'is-invalid': submitted && articleForm.controls.description.errors}">
+                <div class="invalid-feedback d-block"
+                    *ngIf="submitted && articleForm.controls.description.hasError('required')">Vérifiez votre saisie
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Text input categorie-->
+    <div class="offset-3 form-group">
+        <label class="col-md-4 control-label">Prix</label>
+        <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="prix" placeholder="Prix" class="form-control" type="text" formControlName="prix"
+                    [ngClass]="{'is-valid': submitted && !articleForm.controls.prix.errors ,'is-invalid': submitted && articleForm.controls.prix.errors}">
+                <div class="invalid-feedback d-block"
+                    *ngIf="submitted && articleForm.controls.prix.hasError('required')">Vérifiez votre saisie</div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Select Basic -->
+
+    <!-- Success message -->
+
+    <!-- Button -->
+    <div class="offset-6 form-group">
+        <div class="col-md-4"><br>
+            <button type="submit" class="btn btn-success">Ajouter</button>
+            <button type="button" class="btn btn-danger" routerLink="/user-list">Annuler</button>
+        </div>
+    </div>
+
+</form>
