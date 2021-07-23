@@ -10,7 +10,6 @@ import { ServicesService } from '../services.service';
 export class UpdateArticlesComponent implements OnInit {
   index: any;
   submitted=false;
-  users = JSON.parse(localStorage.getItem('registration') || '[]');
   articleForm=new FormGroup({
     nomArticle: new FormControl('',Validators.required),
     quantiteArticle: new FormControl('',[Validators.required]),
@@ -21,14 +20,15 @@ export class UpdateArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.index = this.activatetRoute.snapshot.params.index;
-    this.articleForm.patchValue(this.users[this.index])
+    const currentArticle = this.ArticleService.getAricleByIndex(this.index)
+    this.articleForm.patchValue(currentArticle);
   }
   updateArticle(){
     this.submitted=true;
     if (this.articleForm.invalid)
     {return};
     //update using service
-    this.ArticleService.getAricleByIndex(this.index);
+   
     this.ArticleService.saveUpdate(this.index, this.articleForm.value);
     this.router.navigateByUrl('/article')
     /*this.users.splice(this.index, 1, this.articleForm.value);

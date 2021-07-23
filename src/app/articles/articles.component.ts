@@ -9,14 +9,15 @@ export class ArticlesComponent implements OnInit {
   //users = JSON.parse(localStorage.getItem('registration') || '[]');
 
   constructor(private ArticleService: ServicesService) { }
-  registartions = this.ArticleService.getAllArticles();
+  registartions: any;
   ngOnInit(): void {
+    this.registartions = this.ArticleService.getAllArticles();
   }
 
   supprimerArticle(nb: any) {
     //delete using services
     this.ArticleService.deleteArticle(nb);
-    this.ArticleService.getAllArticles();
+    this.registartions = this.ArticleService.getAllArticles();
     /*
     this.users.splice(nb,1);
     localStorage.setItem('registration', JSON.stringify(this.users));
