@@ -23,6 +23,7 @@ export class UpdateArticlesComponent implements OnInit {
     const currentArticle = this.ArticleService.getAricleByIndex(this.index)
     this.articleForm.patchValue(currentArticle);
   }
+  
   updateArticle(){
     this.submitted=true;
     if (this.articleForm.invalid)

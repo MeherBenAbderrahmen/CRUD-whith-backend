@@ -6,10 +6,11 @@ import { ServicesService } from '../services.service';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent implements OnInit {
-  //users = JSON.parse(localStorage.getItem('registration') || '[]');
+ 
+  registartions: any;
 
   constructor(private ArticleService: ServicesService) { }
-  registartions: any;
+  
   ngOnInit(): void {
     this.registartions = this.ArticleService.getAllArticles();
   }
