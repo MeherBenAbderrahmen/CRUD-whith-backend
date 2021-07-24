@@ -1,36 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  getAllArticles() {
-    return JSON.parse(localStorage.getItem('registration') || '[]');
+  getAllArticles(): Observable<any[]> {
+    return this.httpClient.get<any []>('http://localhost:3000/articles');
   }
 
-  deleteArticle(index: number) {
-    const registartions = this.getAllArticles();
-    registartions.splice(index, 1);
-    localStorage.setItem('registration', JSON.stringify(registartions));
+  deleteArticle(id: number) {
+    return this.httpClient.delete('http://localhost:3000/articles/'+id);
   }
 
-  saveUpdate(index: number, formValue: any) {
-    let artcicleData = this.getAllArticles();
-    artcicleData.splice(index, 1, formValue);
-    localStorage.setItem('registration', JSON.stringify(artcicleData))
+  saveUpdate(id: number, formValue: any) {
+    return this.httpClient.put('http://localhost:3000/articles/'+id,formValue);
   }
 
-  getAricleByIndex(index: number) {
-    const registartions = this.getAllArticles();
-    return (registartions[index])
+  getAricleById(id: number) {
+    return this.httpClient.get('http://localhost:3000/articles/'+id);
   }
   
   addArticle(formValue: any) {
-    const registartions = JSON.parse(localStorage.getItem('registration') || '[]');
-    registartions.push(formValue);
-    localStorage.setItem('registration', JSON.stringify(registartions));
+  return this.httpClient.post('http://localhost:3000/articles',formValue);
   }
 }

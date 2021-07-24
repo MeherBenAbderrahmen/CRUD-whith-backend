@@ -1,0 +1,18 @@
+{
+  "Articles": [
+    {
+      "nomArticle": "article1",
+      "quantiteArticle": "20",
+      "description": "ordinateur",
+      "prix": "201",
+      "id": 2
+    },
+    {
+      "nomArticle": "article4",
+      "quantiteArticle": "200",
+      "description": "clavier",
+      "prix": "50",
+      "id": 3
+    }
+  ]
+}

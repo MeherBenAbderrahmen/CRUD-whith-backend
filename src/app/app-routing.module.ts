@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/article', pathMatch: 'full',},
  
   {path: 'addArticle', component:AddArticlesComponent},
-  {path: 'updateArticle/:index', component:UpdateArticlesComponent},
+  {path: 'updateArticle/:id', component:UpdateArticlesComponent},
   {path: 'article', component:ArticlesComponent},
 ];
 

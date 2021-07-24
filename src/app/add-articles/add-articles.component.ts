@@ -25,18 +25,21 @@ export class AddArticlesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   addArticle() {
     this.submitted = true;
     if (this.articleForm.invalid) { return };
     //Add using service
-    this.ArticleService.addArticle(this.articleForm.value);
+    this.ArticleService.addArticle(this.articleForm.value).subscribe((response) => {
+      this.router.navigate(['/article'])
+    }, (error) => {
+      console.log(error);
+    });
     /*
      const registartions = JSON.parse(localStorage.getItem('registration') || '[]');
      registartions.push(this.articleForm.value);
      localStorage.setItem('registration', JSON.stringify(registartions));
      */
-    this.router.navigate(['/article'])
 
   }
 }
