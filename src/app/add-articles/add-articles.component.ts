@@ -25,6 +25,7 @@ export class AddArticlesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   addArticle() {
     this.submitted = true;
     if (this.articleForm.invalid) { return };
