@@ -8,11 +8,11 @@
       "id": 2
     },
     {
-      "nomArticle": "article4",
-      "quantiteArticle": "200",
-      "description": "clavier",
-      "prix": "50",
-      "id": 3
+      "nomArticle": "article12",
+      "quantiteArticle": "100",
+      "description": "article",
+      "prix": "10",
+      "id": 4
     }
   ]
 }
